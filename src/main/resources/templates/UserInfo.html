@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Ticket Request</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .header h1 {
+            margin: 0;
+            color: #333;
+        }
+        .content {
+            padding: 20px;
+        }
+        .content p {
+            margin: 0 0 10px;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .footer a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>New Ticket Request</h1>
+    </div>
+    <div class="content">
+        <p><strong>User Name:</strong> <span th:text="${userName}">John Doe</span></p>
+        <p><strong>From:</strong> <span th:text="${from}">City A</span></p>
+        <p><strong>To:</strong> <span th:text="${to}">City B</span></p>
+        <p><strong>Start Date:</strong> <span th:text="${startDate}">2024-10-01</span></p>
+        <p><strong>End Date:</strong> <span th:text="${endDate}">2024-10-01</span></p>
+        <p>Please review this request and take the necessary action.</p>
+    </div>
+    <div class="footer">
+        <p>If you have any questions, please feel free to <a href="mailto:support@example.com">contact us</a>.</p>
+    </div>
+</div>
+</body>
+</html>
