@@ -1,8 +1,7 @@
 package com.planepockets.controller;
 
-import com.amadeus.exceptions.ResponseException;
-import com.planepockets.config.AmadeusConnect;
-import com.amadeus.resources.Location;
+import com.planepockets.AviationStackService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,9 +11,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequestMapping("/api/v1.0/flight")
 public class FlightSearchController {
 
-    @GetMapping("/locations")
-    public Location[] locations(@RequestParam(required=true) String keyword) throws ResponseException {
-        return AmadeusConnect.INSTANCE.location(keyword);
+    @Autowired
+    private AviationStackService aviationstackService;
+
+    @GetMapping("/search")
+    public String searchFlights(
+            @RequestParam String start,
+            @RequestParam String destination,
+            @RequestParam String fromDate,
+            @RequestParam(required = false) String toDate,
+            @RequestParam(defaultValue = "1") int noOfPassengers) {
+
+        return aviationstackService.searchFlights(start, destination, fromDate, toDate, noOfPassengers);
+    }
+
+    @GetMapping("/airports")
+    public String getAirports() {
+        return aviationstackService.getAirports();
     }
 
 }
