@@ -1,8 +1,8 @@
 package com.planepockets.controller;
 
-import com.planepockets.mailservice.MailService;
 import com.planepockets.pojo.B2bPojo;
 import com.planepockets.pojo.SimpleResponse;
+import com.planepockets.proton.mailservice.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +20,7 @@ public class B2bController {
 
     @PostMapping
     public ResponseEntity<SimpleResponse> getB2bRequest(@RequestBody B2bPojo request) {
-        mailService.sendUserInfoMail(request.getName(), "Ashi21091998@gmail.com", request);
+        //mailService.sendUserInfoMail(request.getName(), "Ashi21091998@gmail.com", request);
         return new ResponseEntity<>(new SimpleResponse("Your response recorded successfully"), HttpStatus.OK);
     }
 }

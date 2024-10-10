@@ -1,4 +1,4 @@
-package com.planepockets.mailservice;
+package com.planepockets.proton.mailservice;
 
 public class MailSender implements Runnable {
 

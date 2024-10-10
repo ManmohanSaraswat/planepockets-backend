@@ -1,4 +1,4 @@
-package com.planepockets.mailservice;
+package com.planepockets.proton.mailservice;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
